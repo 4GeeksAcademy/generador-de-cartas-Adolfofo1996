@@ -28,10 +28,18 @@ window.onload = function() {
   //write your code here
   console.log("Hello Rigo from the console!");
   newCard();
+  document.querySelector("#new-card").addEventListener("click", newCard);
 };
 
 const newCard = () => {
   topSuit.innerHTML = suits[Math.floor(Math.random() * suits.length)];
   number.innerHTML = numbers[Math.floor(Math.random() * numbers.length)];
   bottomSuit.innerHTML = topSuit.innerHTML;
+  if (topSuit.innerHTML == "♥" || topSuit.innerHTML == "♦") {
+    topSuit.style.color = "red";
+    bottomSuit.style.color = "red";
+  } else {
+    topSuit.style.color = "black";
+    bottomSuit.style.color = "black";
+  }
 };
